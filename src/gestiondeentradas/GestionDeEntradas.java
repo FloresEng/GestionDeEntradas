@@ -156,7 +156,7 @@ public class GestionDeEntradas {
                         totalAPagar = precioEntrada * cantidadAsientos;
                         String estado = "Reservado";
                         //almacenamos nueva boleta
-                        numBoleta++;
+                        numBoleta++;//punto de depuración
                         Boleta nuevaBoleta = new Boleta (numBoleta, cantidadAsientos, asientosElegidos.toString(), estado, totalAPagar);
                         listaBoleta.add(nuevaBoleta);
                         System.out.println("");
@@ -183,7 +183,7 @@ public class GestionDeEntradas {
                             continue;
                         }
                         switch (accion) {
-                            case 1:
+                            case 1://comienza depuración
                                 System.out.println("Indique numero de asiento a cambiar:");
                                 int asientoActual = 0;
                                 try {
@@ -210,7 +210,7 @@ public class GestionDeEntradas {
                                 if (asientoActual == asientoNuevo) {
                                     System.out.println("Error: El asiento nuevo no puede ser igual al actual.");
                                     continue;
-                                }
+                                }//termina depuración
                                 //buscamos asiento en la lista
                                 boolean asientoEncontrado = false;
                                 for (Boleta b : listaBoleta) {
@@ -269,6 +269,7 @@ public class GestionDeEntradas {
                             String respuesta = sc.nextLine();
                             
                             if (respuesta.equalsIgnoreCase("S")) {
+                                //comienza depuración
                                 System.out.println("Ingrese numero de boleta a comprar:");
                                 int numBoletaComprar = 0;
                                 try {
@@ -296,7 +297,7 @@ public class GestionDeEntradas {
                                     System.out.println("Boleta Nro: "+boletaComprar.numBoleta
                                             + "\nAsientos: "+boletaComprar.numAsiento
                                             + "\nTotal a pagar: $"+boletaComprar.totalAPagar);
-                                }
+                                }//termina depuración
                             }
                             break;
                         }//fin else
@@ -402,7 +403,7 @@ public class GestionDeEntradas {
                         if (listaBoleta.isEmpty()) {
                             System.out.println("No hay boletas guardadas.");
                         } else {
-                            for (Boleta b : listaBoleta) {
+                            for (Boleta b : listaBoleta) {//punto de depuración
                                 System.out.println("\nBoleta Nro: "+b.numBoleta
                                         + "\nEstado: "+b.estado
                                         + "\nCantidad de asientos: "+b.cantidadAsientos
@@ -422,7 +423,7 @@ public class GestionDeEntradas {
                         System.out.println("Opcion invalida. Favor intente de nuevo");
                         break;
                         
-                }
+                }//fin switch opción
             }//fin while para continuar
         sc.close(); 
     }
